@@ -7,7 +7,6 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div className="container">
-        <a className="" href="."></a>
         <NavLink to="/" className="navbar-brand">
           Печеньки
         </NavLink>
@@ -36,7 +35,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/history"
+                to="/journals"
                 className="nav-link"
                 activeClassName="active"
               >

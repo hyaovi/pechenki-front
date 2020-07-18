@@ -8,7 +8,7 @@ function StorePage() {
       <h6 className="mb-3">Store</h6>
       <div className="row no-gutters">
         {itemsList.map((item, i) => (
-          <div className="col-sm-3 p-3" key={`${item}-${i}`}>
+          <div className="col-sm-6 col-md-4 col-lg-3 p-3" key={`${item}-${i}`}>
             <StoreItemCard />
           </div>
         ))}
