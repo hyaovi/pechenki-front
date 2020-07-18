@@ -1,0 +1,34 @@
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.auth-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: right;
+}
+
+//  TURN OFF INPUT NUMBER ARROWS
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+// QT INPUT
+.qt-input {
+  max-width: 3rem;
+  padding: 0 1rem !important;
+}
+.bg-light {
+  background-color: #eaf3f8 !important;
+}
+.card {
+  border-color: transparent;
+}
