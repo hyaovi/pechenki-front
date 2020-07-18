@@ -26,9 +26,14 @@ input[type='number'] {
   max-width: 3rem;
   padding: 0 1rem !important;
 }
-.bg-light {
-  background-color: #eaf3f8 !important;
-}
+
 .card {
   border-color: transparent;
+}
+.page-content {
+  min-height: 100vh;
+  margin-top: 70px;
+}
+.bg-lighten-blue {
+  background-color: $lighten-blue;
 }

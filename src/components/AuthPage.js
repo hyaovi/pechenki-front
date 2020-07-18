@@ -1,7 +1,7 @@
 import React from 'react';
 import authpageImage from '../images/food.jpg';
 import logo from '../images/cookie.png';
-import { useRouteMatch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function AuthPage() {
   return (
