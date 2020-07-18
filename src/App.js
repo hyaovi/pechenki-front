@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import AuthPage from './components/AuthPage';
 import AdminAuthPage from './components/AdminAuthPage';
 import StorePage from './components/StorePage';
+
 function App() {
   return (
     <Switch>

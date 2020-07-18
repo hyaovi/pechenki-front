@@ -1,12 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import iconShoppingCart from '../images/icon-shopping-cart.svg';
+import iconUser from '../images/icon-user-circle.svg';
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <a className="" href="."></a>
+        <NavLink to="/" className="navbar-brand">
           Печеньки
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,39 +26,36 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
-                Меню <span className="sr-only">(current)</span>
-              </a>
+              <NavLink
+                to="/store"
+                className="nav-link"
+                activeClassName="active"
+              >
+                Меню
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="./history.html">
+              <NavLink
+                to="/history"
+                className="nav-link"
+                activeClassName="active"
+              >
                 История заказов
-              </a>
+              </NavLink>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item ">
-              <a className="nav-link" href="./shopping-cart.html">
-                {' '}
-                <img
-                  className="mr-2"
-                  src="./images/icon-shopping-cart.svg"
-                  alt=""
-                />
-                0 item(s)
-              </a>
+              <NavLink to="/cart" className="nav-link" activeClassName="active">
+                <img className="mr-2" src={iconShoppingCart} alt="" />0 item(s)
+              </NavLink>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                {' '}
-                <img
-                  className="mr-2"
-                  src="./images/icon-user-circle.svg"
-                  alt=""
-                />
+              <NavLink to="/user" className="nav-link" activeClassName="active">
+                <img className="mr-2" src={iconUser} alt="" />
                 Личный кабинет
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
