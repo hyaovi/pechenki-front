@@ -1,21 +1,24 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-import iconShoppingCart from '../../images/icon-shopping-cart.svg';
-import iconUser from '../../images/icon-user-circle.svg';
+import iconShoppingCart from "../../images/icon-shopping-cart.svg";
+import iconUser from "../../images/icon-user-circle.svg";
 
-import { logOut } from '../../globalSlice';
-import * as ROUTES from '../../constants/routes';
+import { logOut } from "../../globalSlice";
+import * as ROUTES from "../../constants/routes";
 
 function Navbar() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+
   const handleLogOut = () => {
     dispatch(logOut());
     history.push(ROUTES.HOMEPAGE);
   };
+  const toggler = () => setShow((PREVSTATE) => !PREVSTATE);
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div className="container">
@@ -30,11 +33,15 @@ function Navbar() {
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          onClick={toggler}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className={`collapse navbar-collapse ${show && "show"}`}
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <NavLink
