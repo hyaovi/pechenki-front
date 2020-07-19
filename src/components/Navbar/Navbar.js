@@ -20,7 +20,7 @@ function Navbar() {
   };
   const toggler = () => setShow((PREVSTATE) => !PREVSTATE);
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <nav className="navbar navbar-expand-md navbar-light bg-white fixed-top">
       <div className="container">
         <NavLink to={ROUTES.HOMEPAGE} className="navbar-brand">
           Печеньки

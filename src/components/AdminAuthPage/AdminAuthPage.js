@@ -1,6 +1,7 @@
 import React from "react";
-import authpageImage from "../images/food.jpg";
-import logo from "../images/cookie.png";
+import authpageImage from "../../images/food.jpg";
+import logo from "../../images/cookie.png";
+import AdminLoginForm from "./AdminLoginForm";
 
 export default function AdminAuthPage() {
   return (
@@ -40,27 +41,3 @@ export default function AdminAuthPage() {
     </main>
   );
 }
-const AdminLoginForm = () => {
-  return (
-    <>
-      <form className="">
-        <h3 className="mb-3">Login admin</h3>
-        <div className="form-group">
-          <label htmlFor="login">user</label>
-          <input type="text" className="form-control" id="login" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input type="password" className="form-control" id="password" />
-        </div>
-
-        <button type="submit" className="btn btn-block btn-primary">
-          Submit
-        </button>
-      </form>
-      <a href="." className="btn btn-link">
-        <small>Forgot password?</small>
-      </a>
-    </>
-  );
-};
