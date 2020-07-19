@@ -1,7 +1,9 @@
 import React from 'react';
-import authpageImage from '../images/food.jpg';
-import logo from '../images/cookie.png';
-import { Link } from 'react-router-dom';
+
+import RoomLoginForm from './RoomLoginForm';
+
+import authpageImage from '../../images/food.jpg';
+import logo from '../../images/cookie.png';
 
 export default function AuthPage() {
   return (
@@ -37,27 +39,3 @@ export default function AuthPage() {
     </main>
   );
 }
-
-const RoomLoginForm = () => {
-  return (
-    <>
-      <form className="">
-        <h3 className="mb-3">Login</h3>
-        <div className="form-group">
-          <label htmlFor="login">Room Key</label>
-          <input type="text" className="form-control" id="login" />
-        </div>
-
-        <button type="submit" className="btn btn-block btn-primary">
-          Enter
-        </button>
-      </form>
-      <a href="." className="btn btn-link">
-        <small>Forgot your key?</small>
-      </a>
-      <Link to="/admin" className="btn btn-block btn-link">
-        Login as admin
-      </Link>
-    </>
-  );
-};

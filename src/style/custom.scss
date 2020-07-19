@@ -37,3 +37,19 @@ input[type='number'] {
 .bg-lighten-blue {
   background-color: $lighten-blue;
 }
+.laoding-component {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: $light, $alpha: 0.5);
+  z-index: 3;
+  .spinner {
+    margin: auto;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+  }
+}
