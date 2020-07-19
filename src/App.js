@@ -1,13 +1,13 @@
-import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-import AuthPage from './components/AuthPage';
-import AdminAuthPage from './components/AdminAuthPage';
-import StorePage from './components/StorePage';
-import JournalPage from './components/JournalPage';
-import Cart from './components/Cart';
+import AuthPage from "./components/AuthPage";
+import AdminAuthPage from "./components/AdminAuthPage";
+import StorePage from "./components/StorePage";
+import JournalPage from "./components/JournalPage";
+import Cart from "./components/Cart";
 
-import * as ROUTES from './constants/routes';
+import * as ROUTES from "./constants/routes";
 
 function App() {
   return (
