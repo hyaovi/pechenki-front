@@ -17,7 +17,6 @@ function Navbar() {
   const handleLogOut = () => {
     dispatch(logOut());
     history.push(ROUTES.HOMEPAGE);
-    console.log("our");
   };
   const toggler = () => setShow((PREVSTATE) => !PREVSTATE);
   return (
