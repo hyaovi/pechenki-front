@@ -29,9 +29,11 @@ function StoreItemCard({ item, isAdmin }) {
           <strong>{name}</strong>
         </p>
         <p className=" small item-description text-center">{description}</p>
-        <p className="text-center ">
-          Remaining in store: <strong> {remaining}</strong>
-        </p>
+        {isAdmin && (
+          <p className="text-center ">
+            Remaining in store: <strong> {remaining}</strong>
+          </p>
+        )}
         {!isAdmin && (
           <button className="btn btn-block btn-light" onClick={addPoduct}>
             Заказать

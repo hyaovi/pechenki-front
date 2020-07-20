@@ -40,6 +40,7 @@ function App() {
         <CommingSoon />
         {/* TO DO : CREATE ORDER PAGE */}
       </Route>
+      <Route path="*" exact={true} component={AuthPage} />
       <Route>
         <NotFound />
       </Route>
