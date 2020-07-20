@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import { setUser } from "../../globalSlice";
-import { adminUserData } from "../../constants/mockData";
-import { STORE, HOMEPAGE } from "../../constants/routes";
-import { setSession } from "../../utils";
+import { setUser } from '../../globalSlice';
+import { adminUserData } from '../../constants/mockData';
+import { STORE, HOMEPAGE } from '../../constants/routes';
+import { setSession } from '../../utils';
 
 export default function AdminLoginForm() {
   const history = useHistory();
@@ -14,13 +14,13 @@ export default function AdminLoginForm() {
 
   const [loginKey, setLoginKey] = useState({
     isValid: false,
-    key: "",
-    feedBack: "please enter a correct key",
+    key: '',
+    feedBack: 'please enter a correct key',
   });
   const [password, setPassword] = useState({
     isValid: false,
-    password: "",
-    feedBack: "please a correct password",
+    password: '',
+    feedBack: 'please a correct password',
   });
 
   const onChangeHandle = ({ target: { value } }) => {
@@ -32,7 +32,7 @@ export default function AdminLoginForm() {
     setPassword((PREVSTATE) => ({ ...PREVSTATE, password: value, isValid }));
   };
   const setUserData = (data) => {
-    setSession("user", data);
+    setSession('user', data);
     dispatch(setUser(data));
     history.push(STORE);
   };

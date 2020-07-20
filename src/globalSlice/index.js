@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { removeSession } from '../utils';
+import { removeSession, getSession } from '../utils';
+import { productList } from '../constants/mockData';
 
 const initialState = {
   isLoading: false,
-  isAuthenticated: false,
-  user: undefined,
+  isAuthenticated: getSession('user') ? true : false,
+  user: getSession('user') || undefined,
+  productList: productList,
 };
 
 const mainSlice = createSlice({
@@ -24,11 +26,24 @@ const mainSlice = createSlice({
       removeSession('user');
       state = initialState;
     },
+    setProducts: (state, action) => {
+      state.storeProduct = action.payload;
+    },
   },
 });
 
-export const { loading, setUser, logOut } = mainSlice.actions;
+export const {
+  loading,
+  setUser,
+  logOut,
+  setProducts,
+
+  addProductToCart,
+  UpdateProductToCart,
+} = mainSlice.actions;
 export default mainSlice.reducer;
 
 export const selectLoading = (state) => state.cookie.isLoading;
 export const selectIsAuthenticated = (state) => state.cookie.isAuthenticated;
+export const selectOrdersList = (state) => state.cookie.ordersList;
+export const selectProductList = (state) => state.cookie.productList;

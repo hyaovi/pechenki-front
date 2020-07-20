@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import iconShoppingCart from "../../images/icon-shopping-cart.svg";
-import iconUser from "../../images/icon-user-circle.svg";
+import iconShoppingCart from '../../images/icon-shopping-cart.svg';
+import iconUser from '../../images/icon-user-circle.svg';
 
-import { logOut } from "../../globalSlice";
-import * as ROUTES from "../../constants/routes";
+import { logOut } from '../../globalSlice';
+import { selectOrdersList } from '../../globalSlice/cartSlice';
+import * as ROUTES from '../../constants/routes';
 
 function Navbar() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const orderList = useSelector(selectOrdersList);
   const [show, setShow] = useState(false);
 
   const handleLogOut = () => {
@@ -39,7 +41,7 @@ function Navbar() {
         </button>
 
         <div
-          className={`collapse navbar-collapse ${show && "show"}`}
+          className={`collapse navbar-collapse ${show && 'show'}`}
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav mr-auto">
@@ -69,7 +71,8 @@ function Navbar() {
                 className="nav-link"
                 activeClassName="active"
               >
-                <img className="mr-2" src={iconShoppingCart} alt="" />0 item(s)
+                <img className="mr-2" src={iconShoppingCart} alt="" />
+                {orderList.length} item(s)
               </NavLink>
             </li>
 

@@ -1,4 +1,3 @@
-export const isANumber = (value) => /^\d+$/.test(value);
 export const setSession = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };

@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .auth-image {
@@ -18,7 +18,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 // QT INPUT
@@ -56,4 +56,8 @@ input[type="number"] {
 .scroll-horizontal {
   overflow-x: auto;
   white-space: nowrap;
+}
+.item-description {
+  height: 3.5rem;
+  overflow: hidden;
 }
