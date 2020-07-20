@@ -7,21 +7,15 @@ import { selectOrdersList } from '../../globalSlice/cartSlice';
 
 function StorePage() {
   const orderList = useSelector(selectOrdersList);
-  console.log({ orderList });
-  const [state, setstate] = useState(orderList);
-  useEffect(() => {
-    setstate(orderList);
-    return () => {};
-  }, [orderList]);
   return (
     <PageWrapper bgColor protectedRoute>
       <h6 className="mb-3">Room's Journal</h6>
       <div className="row ">
         <div className="col-md-8 pb-3">
-          {state && state.length > 0 ? (
-            state.map((item, i) => (
+          {orderList && orderList.length > 0 ? (
+            orderList.map((item, i) => (
               <div className="pb-1" key={`${item.productID}-${i}`}>
-                <CartItemCard item={item} orderList={state} index={i} />
+                <CartItemCard item={item} orderList={orderList} index={i} />
               </div>
             ))
           ) : (

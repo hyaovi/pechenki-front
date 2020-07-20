@@ -6,7 +6,8 @@ import { selectProductList, selectUser } from '../../globalSlice';
 import { useSelector } from 'react-redux';
 
 function StorePage() {
-  const { isAdmin } = useSelector(selectUser);
+  const user = useSelector(selectUser);
+  const isAdmin = (user && user.isAdmin) || false;
   console.log(isAdmin);
   const productList = useSelector(selectProductList);
   return (
