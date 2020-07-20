@@ -46,5 +46,6 @@ export default mainSlice.reducer;
 
 export const selectLoading = (state) => state.cookie.isLoading;
 export const selectIsAuthenticated = (state) => state.cookie.isAuthenticated;
+export const selectUser = (state) => state.cookie.user;
 export const selectOrdersList = (state) => state.cookie.ordersList;
 export const selectProductList = (state) => state.cookie.productList;

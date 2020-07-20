@@ -25,6 +25,7 @@ export const productList = [
     description: 'Вкусное молоко...',
     filename: '9',
     image: require('../images/products/9.png'),
+    remaining: 20,
   },
   {
     productID: 133,
@@ -34,6 +35,7 @@ export const productList = [
     description: 'Питьевая вода 20л',
     filename: '8',
     image: require('../images/products/8.png'),
+    remaining: 30,
   },
   {
     productID: 132,
@@ -43,5 +45,6 @@ export const productList = [
     description: 'Хороший круасан, подходящий для быстрого завтрака..',
     filename: '6',
     image: require('../images/products/6.png'),
+    remaining: 9,
   },
 ];

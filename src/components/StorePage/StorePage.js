@@ -2,10 +2,12 @@ import React from 'react';
 
 import PageWrapper from '../PageWrapper';
 import StoreItemCard from './StoreItemCard';
-import { selectProductList } from '../../globalSlice';
+import { selectProductList, selectUser } from '../../globalSlice';
 import { useSelector } from 'react-redux';
 
 function StorePage() {
+  const { isAdmin } = useSelector(selectUser);
+  console.log(isAdmin);
   const productList = useSelector(selectProductList);
   return (
     <PageWrapper bgColor protectedRoute>
@@ -13,7 +15,7 @@ function StorePage() {
       <div className="row no-gutters">
         {productList.map((item, i) => (
           <div className="col-sm-6 col-md-4 col-lg-3 p-3" key={`${item}-${i}`}>
-            <StoreItemCard item={item} />
+            <StoreItemCard item={item} isAdmin={isAdmin} />
           </div>
         ))}
       </div>

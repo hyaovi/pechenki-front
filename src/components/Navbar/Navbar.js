@@ -8,12 +8,14 @@ import iconUser from '../../images/icon-user-circle.svg';
 
 import { logOut } from '../../globalSlice';
 import { selectOrdersList } from '../../globalSlice/cartSlice';
+import { selectUser } from '../../globalSlice';
 import * as ROUTES from '../../constants/routes';
 
 function Navbar() {
   const history = useHistory();
   const dispatch = useDispatch();
   const orderList = useSelector(selectOrdersList);
+  const { isAdmin } = useSelector(selectUser);
   const [show, setShow] = useState(false);
 
   const handleLogOut = () => {
@@ -63,29 +65,55 @@ function Navbar() {
                 История заказов
               </NavLink>
             </li>
+            {isAdmin && (
+              <li className="nav-item">
+                <NavLink
+                  to={ROUTES.ADMIN_DASHBOARD_ORDERS}
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  Текущии заказы
+                </NavLink>
+              </li>
+            )}
           </ul>
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item ">
-              <NavLink
-                to={ROUTES.SHOPPING_CART}
-                className="nav-link"
-                activeClassName="active"
-              >
-                <img className="mr-2" src={iconShoppingCart} alt="" />
-                {orderList.length} item(s)
-              </NavLink>
-            </li>
+            {isAdmin ? (
+              <li className="nav-item">
+                <NavLink
+                  to={ROUTES.ADMIN_DASHBOARD}
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  <img className="mr-2" src={iconUser} alt="" />
+                  Dashboard
+                </NavLink>
+              </li>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <NavLink
+                    to={ROUTES.ROOM_DASHBOARD}
+                    className="nav-link"
+                    activeClassName="active"
+                  >
+                    <img className="mr-2" src={iconUser} alt="" />
+                    Kабинет-1
+                  </NavLink>
+                </li>
+                <li className="nav-item ">
+                  <NavLink
+                    to={ROUTES.SHOPPING_CART}
+                    className="nav-link"
+                    activeClassName="active"
+                  >
+                    <img className="mr-2" src={iconShoppingCart} alt="" />
+                    {orderList.length} item(s)
+                  </NavLink>
+                </li>
+              </>
+            )}
 
-            <li className="nav-item">
-              <NavLink
-                to={ROUTES.ROOM_DASHBOARD}
-                className="nav-link"
-                activeClassName="active"
-              >
-                <img className="mr-2" src={iconUser} alt="" />
-                Kабинет-1
-              </NavLink>
-            </li>
             <li className="nav-item">
               <button
                 className="btn btn-sm btn-light py-2"

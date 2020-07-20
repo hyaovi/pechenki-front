@@ -6,11 +6,11 @@ import {
   addProductToCart,
 } from '../../globalSlice/cartSlice';
 
-function StoreItemCard({ item }) {
+function StoreItemCard({ item, isAdmin }) {
   const dispatch = useDispatch();
   const orderList = useSelector(selectOrdersList);
 
-  const { productID, name, type, description, image } = item;
+  const { productID, name, type, description, image, remaining } = item;
   const addPoduct = () => {
     const newItem = { ...item, amount: 1 };
     for (let i = 0; i < orderList.length; i++) {
@@ -28,10 +28,15 @@ function StoreItemCard({ item }) {
         <p className="text-center ">
           <strong>{name}</strong>
         </p>
-        <p className=" small item-description">{description}</p>
-        <button className="btn btn-block btn-light" onClick={addPoduct}>
-          Заказать
-        </button>
+        <p className=" small item-description text-center">{description}</p>
+        <p className="text-center ">
+          Remaining in store: <strong> {remaining}</strong>
+        </p>
+        {!isAdmin && (
+          <button className="btn btn-block btn-light" onClick={addPoduct}>
+            Заказать
+          </button>
+        )}
       </div>
     </div>
   );

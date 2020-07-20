@@ -8,6 +8,9 @@ import JournalPage from './components/JournalPage';
 import CartPage from './components/CartPage';
 
 import * as ROUTES from './constants/routes';
+import AdminDashboard from './components/AdminDashboard';
+import NotFound from './components/NotFound';
+import CommingSoon from './components/ComingSoon';
 
 function App() {
   return (
@@ -29,6 +32,16 @@ function App() {
       </Route>
       <Route path={ROUTES.ROOM_DASHBOARD} exact>
         <Redirect to={ROUTES.JOURNAL} />
+      </Route>
+      <Route path={ROUTES.ADMIN_DASHBOARD} exact>
+        <AdminDashboard />
+      </Route>
+      <Route path={ROUTES.ADMIN_DASHBOARD_ORDERS} exact>
+        <CommingSoon />
+        {/* TO DO : CREATE ORDER PAGE */}
+      </Route>
+      <Route>
+        <NotFound />
       </Route>
     </Switch>
   );

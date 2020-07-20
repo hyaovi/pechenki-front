@@ -5,3 +5,4 @@ export const JOURNAL = '/journals';
 export const SHOPPING_CART = '/cart';
 export const ROOM_DASHBOARD = '/user-dash';
 export const ADMIN_DASHBOARD = '/admin-dash';
+export const ADMIN_DASHBOARD_ORDERS = '/admin-orders';
