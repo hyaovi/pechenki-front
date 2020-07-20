@@ -24,7 +24,7 @@ export default function AdminLoginForm() {
   });
 
   const onChangeHandle = ({ target: { value } }) => {
-    const isValid = loginKey.key.length > 2;
+    const isValid = loginKey.key.length >= 2;
     setLoginKey((PREVSTATE) => ({ ...PREVSTATE, key: value, isValid }));
   };
   const onChangePasswordHandle = ({ target: { value } }) => {

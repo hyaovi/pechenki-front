@@ -24,6 +24,7 @@ const mainSlice = createSlice({
     },
     logOut: (state) => {
       removeSession('user');
+      removeSession('orderList');
       state = initialState;
     },
     setProducts: (state, action) => {
