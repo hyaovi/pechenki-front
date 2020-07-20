@@ -12,25 +12,10 @@ const cartSlice = createSlice({
       state.push(action.payload);
       setSession('orderList', state);
     },
-    UpdateProductToCart: (state, action) => {
-      const product = state.find(
-        (product) => (product.productID = action.payload.id)
-      );
-      if (product) {
-        product.amount = action.payload.amount;
-      }
-      // state[action.payload.index].amount = action.payload.amount;
-    },
-    deleteProductFromCart: (state, action) => {
-      console.log(action.payload.id);
-      const newState = state.filter(
-        (product) => product.productID !== action.payload.id
-      );
-      state = newState;
-      setSession('orderList', state);
-    },
+
     updateCart: (state, action) => {
-      state = [...action.payload];
+      state = action.payload;
+      setSession('orderList', action.payload);
     },
   },
 });

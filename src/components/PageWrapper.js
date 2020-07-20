@@ -5,7 +5,7 @@ import { useAuth } from './hooks';
 
 function PageWrapper({ children, bgColor, protectedRoute }) {
   const isAuthenticated = useAuth();
-  console.log('pageWrapper rendering');
+
   return (
     <>
       {protectedRoute ? (

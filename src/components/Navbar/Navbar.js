@@ -21,6 +21,7 @@ function Navbar() {
   const handleLogOut = () => {
     dispatch(logOut());
     history.push(ROUTES.HOMEPAGE);
+    window.history.go(ROUTES.HOMEPAGE); // FOR SOME REASONS history.push is not working
   };
   const toggler = () => setShow((PREVSTATE) => !PREVSTATE);
   return (
@@ -91,16 +92,6 @@ function Navbar() {
               </li>
             ) : (
               <>
-                <li className="nav-item">
-                  <NavLink
-                    to={ROUTES.ROOM_DASHBOARD}
-                    className="nav-link"
-                    activeClassName="active"
-                  >
-                    <img className="mr-2" src={iconUser} alt="" />
-                    Kабинет-1
-                  </NavLink>
-                </li>
                 <li className="nav-item ">
                   <NavLink
                     to={ROUTES.SHOPPING_CART}
@@ -109,6 +100,16 @@ function Navbar() {
                   >
                     <img className="mr-2" src={iconShoppingCart} alt="" />
                     {orderList.length} item(s)
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    to={ROUTES.ROOM_DASHBOARD}
+                    className="nav-link"
+                    activeClassName="active"
+                  >
+                    <img className="mr-2" src={iconUser} alt="" />
+                    Kабинет-1
                   </NavLink>
                 </li>
               </>

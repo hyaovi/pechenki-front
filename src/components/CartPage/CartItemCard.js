@@ -1,37 +1,28 @@
 import React, { useState } from 'react';
 import iconDelete from '../../images/icon-delete.svg';
-import { useDispatch } from 'react-redux';
 
-import {
-  UpdateProductToCart,
-  deleteProductFromCart,
-} from '../../globalSlice/cartSlice';
-
-function ItemCartCard({ item, index }) {
-  const dispatch = useDispatch();
+function ItemCartCard({ item, updateCart, deleteFromCart }) {
   const { productID, name, type, description, image, amount } = item;
   const [localAmount, setlocalAmount] = useState(amount);
-
   const ChangeAmount = (event) => {
     setlocalAmount(event.target.value);
+    updateCart(productID, event.target.value);
   };
   const deleteProduct = () => {
-    dispatch(deleteProductFromCart({ id: productID }));
+    deleteFromCart(productID);
   };
   const increment = () => {
-    setlocalAmount(localAmount + 1);
-    findAndEditItem();
+    const newAmount = localAmount + 1;
+    setlocalAmount(newAmount);
+    updateCart(productID, newAmount);
   };
   const decrement = () => {
     if (localAmount === 1) {
       return;
     }
-    setlocalAmount((PREV_STATE) => PREV_STATE - 1);
-  };
-  const findAndEditItem = () => {
-    dispatch(
-      UpdateProductToCart({ index: index, id: productID, amount: localAmount })
-    );
+    const newAmount = localAmount - 1;
+    updateCart(productID, newAmount);
+    setlocalAmount(newAmount);
   };
 
   return (
@@ -63,7 +54,6 @@ function ItemCartCard({ item, index }) {
             </div>
             <input
               type="number"
-              max="10"
               min="1"
               value={localAmount}
               onChange={ChangeAmount}
